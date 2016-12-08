@@ -8,8 +8,13 @@ function uule($city) {
 
 $final = array();
 
+$files = array('locations.csv','locations_uule.csv');
+if(function_exists('array_replace')) {
+    $files = array_replace($files, array_slice($argv, 1, 2));
+}
+
 $row = 1;
-if (($handle = fopen("latest.csv", "r")) !== FALSE) {
+if (($handle = fopen($files[0], "r")) !== FALSE) {
     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
     	if($row==1)
     		$final[] = array_merge($data, array('Uule parameter'));
@@ -20,7 +25,7 @@ if (($handle = fopen("latest.csv", "r")) !== FALSE) {
     fclose($handle);
 }
 
-$fp = fopen('file.csv', 'w');
+$fp = fopen($files[1], 'w');
 
 foreach ($final as $fields) {
     fputcsv($fp, $fields);
