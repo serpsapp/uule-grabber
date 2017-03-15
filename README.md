@@ -2,6 +2,6 @@ Get the latest csv of places from Google here : https://developers.google.com/ad
 
 Put it inside of the same directory and rename it "locations.csv".
 
-Run it, the final output will be "locations_outfile.csv".
+Run it, the final output will be "locations_uule.csv".
 
 Thanks to Salemioche for the % trick.
